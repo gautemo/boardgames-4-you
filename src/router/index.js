@@ -18,21 +18,17 @@ const routes = [
   {
     path: '/groups',
     name: 'groups',
-    component: () => import('../views/Groups.vue')
+    component: () => import('../views/Groups.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => import('../views/Profile.vue')
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/Profile.vue'),
+    meta: {
+      requiresAuth: true
     }
   }
 ]
@@ -42,5 +38,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const user = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !user) {
+    next('signin');
+  } else {
+    next();
+  }
+});
 
 export default router
