@@ -13,7 +13,7 @@ import 'firebaseui/dist/firebaseui.css';
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 export default {
-    created(){
+    mounted(){
         this.showSignInUi();
     },
     methods: {

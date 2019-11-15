@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import firebase from '@/firebaseinit.js'
 
 Vue.use(VueRouter)
 
