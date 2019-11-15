@@ -1,11 +1,11 @@
 <template>
   <section>
-    TODO: lag en kul introside
+    TODO: lag loggin side
   </section>
 </template>
 
 <script>
 export default {
-  name: 'home'
+
 }
 </script>
