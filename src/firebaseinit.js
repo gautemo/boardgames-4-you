@@ -1,4 +1,5 @@
 import * as firebase from "firebase/app";
+import "firebase/functions";
 import "firebase/analytics";
 import "firebase/firestore";
 import "firebase/auth";
