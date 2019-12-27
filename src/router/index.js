@@ -31,6 +31,14 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/group/:id',
+    name: 'group',
+    component: () => import('@/views/Group.vue'),
+    meta: {
+      requiresAuth: true
+    }
   }
 ]
 

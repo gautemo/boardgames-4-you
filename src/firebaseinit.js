@@ -4,7 +4,7 @@ import "firebase/analytics";
 import "firebase/firestore";
 import "firebase/auth";
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDVQpCWhqLBF3KV-UbEHtEcPdPU9pAVyTA",
     authDomain: "boardgames-4-you.firebaseapp.com",
     databaseURL: "https://boardgames-4-you.firebaseio.com",
