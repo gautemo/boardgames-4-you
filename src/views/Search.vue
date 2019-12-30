@@ -2,7 +2,9 @@
     <div class="search">
         <input type="text" v-model="text" @input="searchAfterDelay">
         <ul>
-            <li v-for="game in games" :key="game.id">{{game.name}}</li>
+            <li v-for="game in games" :key="game.id">
+                <AddGame :game="game" />
+            </li>
         </ul>
     </div>
 </template>
@@ -18,8 +20,9 @@ export default {
     },
     methods: {
         async search(){
-            const response = await fetch(`${process.env.VUE_APP_API}search?name=${this.text}&client_id=${process.env.VUE_APP_API_CLIENT_ID}&fuzzy_match=true`);
+            const response = await fetch(`${process.env.VUE_APP_API}search?name=${this.text}&client_id=${process.env.VUE_APP_API_CLIENT_ID}&fuzzy_match=true&limit=25`);
             const data = await response.json();
+            data.games.sort((a,b) => b.num_user_ratings - a.num_user_ratings);
             this.games = data.games;
         },
         searchAfterDelay(){
@@ -37,6 +40,9 @@ export default {
                 this.timer = null;
             }
         }
+    },
+    components: {
+        AddGame: () => import('@/components/AddGame')
     }
 }
 </script>
@@ -50,5 +56,10 @@ input{
     width: 100%;
     font-size: 1.2em;
     padding: 3px;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
 }
 </style>
