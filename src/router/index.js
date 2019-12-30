@@ -33,6 +33,11 @@ const routes = [
     }
   },
   {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/Search.vue')
+  },
+  {
     path: '/group/:id',
     name: 'group',
     component: () => import('@/views/Group.vue'),

@@ -5,7 +5,6 @@
         <ul>
             <li v-for="member in group.members" :key="member.uid">{{member.name}}</li>
         </ul>
-        <Search/>
     </section>
 </template>
 
@@ -27,9 +26,6 @@ export default {
         create(){
             this.createDialog = true;
         }
-    },
-    components:{
-        Search: () => import('@/components/Search')
     }
 }
 </script>

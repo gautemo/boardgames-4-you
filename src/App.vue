@@ -5,6 +5,7 @@
           <router-link to="/">Home</router-link>
           <router-link to="/groups">Groups</router-link>
           <router-link to="/profile">Profile</router-link>
+          <router-link to="/search">Add Game</router-link>
           <div v-if="loggedIn" @click="signOut" class="signout">Sign out</div>
           <router-link v-else to="/signin">Signin</router-link>
         </nav>
