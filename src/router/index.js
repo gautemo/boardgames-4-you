@@ -33,18 +33,18 @@ const routes = [
     }
   },
   {
-    path: '/search',
-    name: 'search',
-    component: () => import('@/views/Search.vue')
-  },
-  {
     path: '/group/:id',
     name: 'group',
     component: () => import('@/views/Group.vue'),
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {
+    path: '/group/:id/search',
+    name: 'search',
+    component: () => import('@/views/Search.vue')
+  },
 ]
 
 const router = new VueRouter({

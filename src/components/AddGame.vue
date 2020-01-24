@@ -2,9 +2,9 @@
     <div class="game">
         <img :src="game.images.small" alt="Image of boardgame">
         <p class="title">{{game.name}}</p>
-        <GameDetail icon="icons/star_border-24px.svg" alt="rating" :text="game.average_user_rating.toFixed(1)"/>
-        <GameDetail icon="icons/calendar_today-24px.svg" alt="year" :text="game.year_published"/>
-        <GameDetail icon="icons/group-24px.svg" alt="players" :text="`${game.min_players} - ${game.max_players}`"/>
+        <GameDetail icon="/icons/star_border-24px.svg" alt="rating" :text="game.average_user_rating.toFixed(1)"/>
+        <GameDetail icon="/icons/calendar_today-24px.svg" alt="year" :text="game.year_published"/>
+        <GameDetail icon="/icons/group-24px.svg" alt="players" :text="`${game.min_players} - ${game.max_players}`"/>
     </div>
 </template>
 
